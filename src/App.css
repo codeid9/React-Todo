@@ -98,7 +98,6 @@ header .wrapper {
 }
 
 .todo-list {
-  position: relative;
   height: 80%;
   width: 100%;
   padding: 1rem;
@@ -113,7 +112,6 @@ header .wrapper {
   justify-content: space-between;
   padding: 0 1rem;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  min-height: 45px;
   border-radius: 4px;
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
   gap: 1rem;
@@ -175,12 +173,19 @@ header .wrapper {
     font-size: 12px;
   }
   .todo {
-    padding: 10px;
-    align-items: flex-start;
+    padding: 5px 10px;
     flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 5px;
+  }
+  .todo div{
+    width: 100%;
+  }
+  .todo div p{
+    text-align: left;
   }
   .todo > div:nth-child(2) {
-    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
