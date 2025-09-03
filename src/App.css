@@ -105,6 +105,7 @@ header .wrapper {
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
+  overflow-y: auto;
 }
 .todo {
   display: flex;
