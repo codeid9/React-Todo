@@ -1,7 +1,6 @@
-import React, { useState } from "react";
 
-function ButtonSet() {
-  const [active, setActive] = useState("All");
+function ButtonSet(props) {
+  const {active,setActive}=props.type;
   const btn_set = [
     { id: 0, text: "All" },
     { id: 1, text: "Active" },

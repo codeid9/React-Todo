@@ -15,7 +15,6 @@ function Todo({ todo }) {
 
   useEffect(()=>{
     allTodos.filter((item)=>{
-      console.log(item);
       if(item.id==id){
         item.completed=isCompleted;
       }

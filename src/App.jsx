@@ -8,6 +8,7 @@ import ButtonSet from "./components/ButtonSet.jsx";
 
 function App() {
   const [isSearchActive, setIsSearchActive] = useState(false);
+  const [active, setActive] = useState("All");
   return (
     <div className="app">
       <header>
@@ -23,9 +24,9 @@ function App() {
         </div>
       </header>
 
-      <ButtonSet />
+      <ButtonSet type={{active,setActive}} />
 
-      <TodosList />
+      <TodosList type={{active}}/>
     </div>
   );
 }
