@@ -40,22 +40,17 @@ header .wrapper {
   width: min(100%, 550px);
   height: 2rem;
 }
-.wrapper .input-todo,
-.wrapper .search,
-.wrapper .icon {
+
+.wrapper .input-todo {
   background: none;
   font-size: 1.2rem;
   height: 100%;
   border: 1px solid rgba(0, 0, 0, 0.3);
-}
-.wrapper .input-todo,
-.wrapper .search {
   flex: 9;
   outline: none;
   padding: 0 0.7rem;
 }
-.wrapper .input-todo:focus,
-.wrapper .search:focus {
+.wrapper .input-todo:focus {
   border: 2px solid var(--primary);
 }
 .wrapper .icon {
@@ -65,12 +60,12 @@ header .wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.wrapper .icon.active {
   color: white;
-  font-size: 2rem;
+  font-size: 1.5rem;
   background: var(--primary);
-  border: 1px solid transparent;
+}
+.wrapper .icon:active {
+  transform: scale(0.9);
 }
 .search::placeholder,
 .input-todo::placeholder {
@@ -132,7 +127,7 @@ header .wrapper {
   accent-color: var(--primary);
   aspect-ratio: 1/1;
 }
-.todo div .edit-input{
+.todo div .edit-input {
   border: none;
   font-size: 1.2rem;
 }

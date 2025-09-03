@@ -8,7 +8,6 @@ A Todo App Built with React.
 - ✂️ Delete Task
 - ✍️ Edit Task
 - ⌛ Filter Task According to State (all,active,completed)
-- 🔎Search Task
 
 ## Live Demo 👇
 

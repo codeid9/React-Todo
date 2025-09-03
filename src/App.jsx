@@ -1,32 +1,37 @@
 import { useState } from "react";
 import "./App.css";
 import InputTodo from "./components/InputTodo.jsx";
-import Search from "./components/Search.jsx";
 import TodosList from "./components/TodosList.jsx";
-import { BiX, BiSearch } from "react-icons/bi";
 import ButtonSet from "./components/ButtonSet.jsx";
+import { useTodo } from "./context/TodoContext.jsx";
+import { IoAddSharp } from "react-icons/io5";
 
 function App() {
-  const [isSearchActive, setIsSearchActive] = useState(false);
   const [active, setActive] = useState("All");
+  const { allTodos, setAllTodos } = useTodo();
+  const [todoText, setTodoText] = useState("");
+  function addTodo(e) {
+    if ((e.key === "Enter" || e.type == "click") && todoText !== "") {
+      const id = allTodos.length > 0 ? allTodos.length + 1 : 1;
+      const newTodo = { id: id, text: todoText, completed: false };
+      setAllTodos([...allTodos, newTodo]);
+      setTodoText("");
+    }
+  }
   return (
     <div className="app">
       <header>
         <div className="wrapper">
-          {isSearchActive ? <Search /> : <InputTodo />}
-
-          <div
-            className={isSearchActive ? "icon active" : "icon"}
-            onClick={() => setIsSearchActive((prev) => !prev)}
-          >
-            {isSearchActive ? <BiX /> : <BiSearch />}
+          <InputTodo props={{ setTodoText, todoText, addTodo }} />
+          <div className="icon" onClick={addTodo}>
+            <IoAddSharp />
           </div>
         </div>
       </header>
 
-      <ButtonSet type={{active,setActive}} />
+      <ButtonSet type={{ active, setActive }} />
 
-      <TodosList type={{active}}/>
+      <TodosList type={{ active }} />
     </div>
   );
 }
