@@ -10,13 +10,12 @@ function App() {
   const [isSearchActive, setIsSearchActive] = useState(false);
   return (
     <div className="app">
-      
       <header>
         <div className="wrapper">
           {isSearchActive ? <Search /> : <InputTodo />}
 
           <div
-            className={isSearchActive?"icon active":"icon"}
+            className={isSearchActive ? "icon active" : "icon"}
             onClick={() => setIsSearchActive((prev) => !prev)}
           >
             {isSearchActive ? <BiX /> : <BiSearch />}
@@ -24,7 +23,7 @@ function App() {
         </div>
       </header>
 
-      <ButtonSet/>
+      <ButtonSet />
 
       <TodosList />
     </div>
