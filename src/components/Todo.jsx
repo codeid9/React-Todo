@@ -7,7 +7,8 @@ function Todo({ todo }) {
   const {allTodos,setAllTodos} = useTodo();
   const {id,text,completed} = todo;
   const [isCompleted, setIsCompleted] = useState(completed);
-
+  const [isEditing,setIsEditing] = useState(false);
+  const [todoText,setTodoText]=useState(text)
   function handleDelete() {
     const filteredTodos = allTodos.filter(item=>item.id!==(id))
     setAllTodos([...filteredTodos]);
@@ -17,10 +18,11 @@ function Todo({ todo }) {
     allTodos.filter((item)=>{
       if(item.id==id){
         item.completed=isCompleted;
+        item.text=todoText;
       }
     })
     setAllTodos([...allTodos])
-  },[isCompleted])
+  },[isCompleted,isEditing])
 
   function handleCompletedTodo() {
     setIsCompleted(!isCompleted)
@@ -34,10 +36,13 @@ function Todo({ todo }) {
           checked={isCompleted}
           onChange={handleCompletedTodo}
         />
-        <p>{text}</p>
+        {
+          isEditing?<input className="edit-input" type="text" value={todoText} onChange={(e)=>setTodoText(e.target.value)} autoFocus onKeyDown={(e)=>{if(e.key=="Enter"){setIsEditing(false)}}} onBlur={()=>setIsEditing(false)} />:<p>{text}</p>
+        }
+        
       </div>
       <div>
-        <button>
+        <button style={isEditing ? {transform:"scale(0.8)",border:"1px solid black"} : {transform:"scale(1)",border:"none"}} onClick={()=>setIsEditing(!isEditing)} >
           <BiEdit />
         </button>
         <button onClick={handleDelete}>

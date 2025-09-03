@@ -7,7 +7,7 @@ function InputTodo() {
   const {allTodos,setAllTodos} = useTodo();
   const [todoText,setTodoText]=useState("");
   function addTodo(e){
-    if(e.key==='Enter'){
+    if(e.key==='Enter' && todoText!==""){
       const id = allTodos.length>0 ?(allTodos.length+1):1;
       const newTodo = {id:id,text:todoText,completed:false};
       setAllTodos([...allTodos,newTodo])
