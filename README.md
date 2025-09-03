@@ -12,3 +12,7 @@ A Todo App Built with React.
 ## Live Demo 👇
 
 [🔗Project-link](https://react-todo-codeid9.netlify.app/)
+
+## Contribution 
+
+Feel free to contribute.

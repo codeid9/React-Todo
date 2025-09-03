@@ -12,8 +12,7 @@ function App() {
   const [todoText, setTodoText] = useState("");
   function addTodo(e) {
     if ((e.key === "Enter" || e.type == "click") && todoText !== "") {
-      const id = allTodos.length > 0 ? allTodos.length + 1 : 1;
-      const newTodo = { id: id, text: todoText, completed: false };
+      const newTodo = { id: Date.now(), text: todoText, completed: false };
       setAllTodos([...allTodos, newTodo]);
       setTodoText("");
     }

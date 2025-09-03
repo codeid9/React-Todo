@@ -9,8 +9,8 @@ function Todo({ todo }) {
   const [isCompleted, setIsCompleted] = useState(completed);
   const [isEditing,setIsEditing] = useState(false);
   const [todoText,setTodoText]=useState(text)
-  function handleDelete() {
-    const filteredTodos = allTodos.filter(item=>item.id!==(id))
+  function handleDelete(e) {
+    const filteredTodos = allTodos.filter(item=> item.id!==(id))    
     setAllTodos([...filteredTodos]);
   }
 
@@ -37,7 +37,7 @@ function Todo({ todo }) {
           onChange={handleCompletedTodo}
         />
         {
-          isEditing?<input className="edit-input" type="text" value={todoText} onChange={(e)=>setTodoText(e.target.value)} autoFocus onKeyDown={(e)=>{if(e.key=="Enter"){setIsEditing(false)}}} onBlur={()=>setIsEditing(false)} />:<p>{text}</p>
+          isEditing?<input className="edit-input" type="text" value={todoText} onChange={(e)=>setTodoText(e.target.value)} autoFocus onKeyDown={(e)=>{if(e.key=="Enter"){setIsEditing(false)}}} onBlur={()=>setIsEditing} />:<p>{text}</p>
         }
         
       </div>
